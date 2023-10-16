@@ -6,4 +6,5 @@ public class QuestionEntity: BaseEntity
     public string Answer { get; set; }
     public string AdditionalNote { get; set; }
     public int AnnotationId { get; set; }
+    public AnnotationEntity Annotation { get; set; }
 }

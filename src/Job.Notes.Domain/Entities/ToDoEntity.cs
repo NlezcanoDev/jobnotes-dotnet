@@ -6,4 +6,5 @@ public class ToDoEntity : BaseEntity
     public string Description { get; set; }
     public bool Done { get; set; }
     public int AnnotationId { get; set; }
+    public AnnotationEntity Annotation { get; set; }
 }

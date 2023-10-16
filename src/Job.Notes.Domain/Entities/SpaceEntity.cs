@@ -7,4 +7,5 @@ public class SpaceEntity: BaseEntity
     public string Name { get; set; }
     public string Description { get; set; }
     public SpaceStatusEnum Status { get; set; }
+    public ICollection<AnnotationEntity> Annotations { get; set; }
 }
