@@ -11,6 +11,8 @@ public class SpaceConfiguration
         entityBuilder.Property(x => x.Name).IsRequired();
         entityBuilder.Property(x => x.Description);
         entityBuilder.Property(x => x.Status).HasConversion<byte>();
+        entityBuilder.Property(x => x.Enabled);
+        entityBuilder.Property(x => x.Deleted);
         entityBuilder.Property(x => x.CreateDate);
         entityBuilder.Property(x => x.UpdateDate);
         entityBuilder.Property(x => x.CreatedBy).IsRequired();

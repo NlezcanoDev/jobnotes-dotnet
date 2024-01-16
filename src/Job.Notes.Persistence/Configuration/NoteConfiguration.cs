@@ -10,6 +10,8 @@ public class NoteConfiguration
         entityBuilder.HasKey(x => x.Id);
         entityBuilder.Property(x => x.Title).IsRequired();
         entityBuilder.Property(x => x.Content);
+        entityBuilder.Property(x => x.Enabled);
+        entityBuilder.Property(x => x.Deleted);
         entityBuilder.Property(x => x.CreateDate);
         entityBuilder.Property(x => x.UpdateDate);
         entityBuilder.Property(x => x.CreatedBy).IsRequired();

@@ -11,6 +11,8 @@ public class QuestionConfiguration
         entityBuilder.Property(x => x.Question).IsRequired();
         entityBuilder.Property(x => x.Answer);
         entityBuilder.Property(x => x.AdditionalNote);
+        entityBuilder.Property(x => x.Enabled);
+        entityBuilder.Property(x => x.Deleted);
         entityBuilder.Property(x => x.CreateDate);
         entityBuilder.Property(x => x.UpdateDate);
         entityBuilder.Property(x => x.CreatedBy).IsRequired();

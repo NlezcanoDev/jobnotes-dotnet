@@ -11,6 +11,8 @@ public class ToDoConfiguration
         entityBuilder.Property(x => x.Title).IsRequired();
         entityBuilder.Property(x => x.Description);
         entityBuilder.Property(x => x.Done);
+        entityBuilder.Property(x => x.Enabled);
+        entityBuilder.Property(x => x.Deleted);
         entityBuilder.Property(x => x.CreateDate);
         entityBuilder.Property(x => x.UpdateDate);
         entityBuilder.Property(x => x.CreatedBy).IsRequired();

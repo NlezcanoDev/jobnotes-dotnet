@@ -15,6 +15,8 @@ public class UserConfiguration
         entityBuilder.Property(x => x.Password).IsRequired();
         entityBuilder.Property(x => x.Role).HasConversion<byte>();
         entityBuilder.Property(x => x.ProfileImg);
+        entityBuilder.Property(x => x.Enabled);
+        entityBuilder.Property(x => x.Deleted);
         entityBuilder.Property(x => x.CreateDate);
         entityBuilder.Property(x => x.UpdateDate);
         entityBuilder.Property(x => x.CreatedBy).IsRequired();
