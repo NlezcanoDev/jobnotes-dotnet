@@ -3,12 +3,14 @@
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
+        <Nullable>warnings</Nullable>
     </PropertyGroup>
 
 
     <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="12.0.1" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.12" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     </ItemGroup>
 
 
@@ -16,4 +18,24 @@
       <ProjectReference Include="..\Job.Notes.Domain\Job.Notes.Domain.csproj" />
     </ItemGroup>
 
+
+
+
+    <ItemGroup>
+      <Folder Include="Database\Annotation\Commands\" />
+      <Folder Include="Database\Annotation\Queries\" />
+      <Folder Include="Database\Base\Queries\" />
+      <Folder Include="Database\Note\Commands\" />
+      <Folder Include="Database\Note\Queries\" />
+      <Folder Include="Database\Question\Commands\" />
+      <Folder Include="Database\Question\Queries\" />
+      <Folder Include="Database\Space\Commands\" />
+      <Folder Include="Database\Space\Queries\" />
+      <Folder Include="Database\ToDo\Commands\" />
+      <Folder Include="Database\ToDo\Queries\" />
+      <Folder Include="Database\User\Queries\" />
+    </ItemGroup>
+
+
+    
 </Project>
