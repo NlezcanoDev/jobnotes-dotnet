@@ -1,4 +1,5 @@
 using Job.Notes.Api;
+using Job.Notes.Api.Adapters;
 using Job.Notes.Application;
 using Job.Notes.Common;
 using Job.Notes.External;
@@ -14,7 +15,10 @@ builder.Services
     .AddExternal(builder.Configuration)
     .AddPersistence(builder.Configuration);
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(opt =>
+    {
+        opt.Filters.Add<DateFilterFormatter>();
+    });
 
 var app = builder.Build();
 app.MapControllers();
@@ -22,8 +26,8 @@ app.MapControllers();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    //app.UseSwagger();
+    //app.UseSwaggerUI();
 }
 
 app.Run();

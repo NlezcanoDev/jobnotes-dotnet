@@ -21,6 +21,7 @@
       <ProjectReference Include="..\Job.Notes.Common\Job.Notes.Common.csproj" />
       <ProjectReference Include="..\Job.Notes.External\Job.Notes.External.csproj" />
       <ProjectReference Include="..\Job.Notes.Persistence\Job.Notes.Persistence.csproj" />
+
     </ItemGroup>
 
 
