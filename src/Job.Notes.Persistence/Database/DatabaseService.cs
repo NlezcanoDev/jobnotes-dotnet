@@ -1,17 +1,16 @@
-﻿using Job.Notes.Application.Interfaces;
+﻿using Job.Notes.Application.Database;
 using Job.Notes.Domain.Entities;
 using Job.Notes.Persistence.Configuration;
 using Microsoft.EntityFrameworkCore;
 
 namespace Job.Notes.Persistence.Database;
 
-public class DatabaseService: DbContext,IDatabaseService
+public class DatabaseService : DbContext, IDatabaseService
 {
-    public DatabaseService(DbContextOptions options): base(options)
+    public DatabaseService(DbContextOptions options) : base(options)
     {
-        
     }
-    
+
     public DbSet<UserEntity> User { get; set; }
     public DbSet<SpaceEntity> Space { get; set; }
     public DbSet<AnnotationEntity> Annotation { get; set; }
