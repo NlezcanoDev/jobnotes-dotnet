@@ -1,7 +1,8 @@
-﻿using Job.Notes.Domain.Entities;
+﻿#nullable enable
+using Job.Notes.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Job.Notes.Application.Interfaces;
+namespace Job.Notes.Application.Database;
 
 public interface IDatabaseService
 {

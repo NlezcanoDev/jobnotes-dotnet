@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Job.Notes.Application.Database;
+using Microsoft.EntityFrameworkCore;
 
 namespace Job.Notes.Application.Interfaces.User.Commands.UpdatePasswordUser;
 

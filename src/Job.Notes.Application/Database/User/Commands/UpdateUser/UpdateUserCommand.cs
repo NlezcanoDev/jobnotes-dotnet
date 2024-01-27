@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Job.Notes.Application.Database;
 using Job.Notes.Domain.Entities;
 
 namespace Job.Notes.Application.Interfaces.User.Commands.UpdateUser;
