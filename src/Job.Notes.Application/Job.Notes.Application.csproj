@@ -30,7 +30,6 @@
       <Folder Include="Database\Question\Commands\" />
       <Folder Include="Database\Question\Queries\" />
       <Folder Include="Database\Space\Commands\" />
-      <Folder Include="Database\Space\Queries\" />
       <Folder Include="Database\ToDo\Commands\" />
       <Folder Include="Database\ToDo\Queries\" />
       <Folder Include="Database\User\Queries\" />
