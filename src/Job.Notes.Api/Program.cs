@@ -4,6 +4,7 @@ using Job.Notes.Application;
 using Job.Notes.Common;
 using Job.Notes.External;
 using Job.Notes.Persistence;
+using NuGet.Protocol;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,10 +16,7 @@ builder.Services
     .AddExternal(builder.Configuration)
     .AddPersistence(builder.Configuration);
 
-builder.Services.AddControllers(opt =>
-    {
-        opt.Filters.Add<DateFilterFormatter>();
-    });
+builder.Services.AddControllers();
 
 var app = builder.Build();
 app.MapControllers();

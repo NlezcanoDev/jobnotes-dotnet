@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using NuGet.Protocol;
 
 namespace Job.Notes.Api.Adapters;
 
