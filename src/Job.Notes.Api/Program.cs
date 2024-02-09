@@ -1,10 +1,9 @@
 using Job.Notes.Api;
-using Job.Notes.Api.Adapters;
+using Job.Notes.Api.Middlewares;
 using Job.Notes.Application;
 using Job.Notes.Common;
 using Job.Notes.External;
 using Job.Notes.Persistence;
-using NuGet.Protocol;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +28,7 @@ builder.Services.AddControllers();
 var app = builder.Build();
 app.MapControllers();
 app.UseCors("CorsPolicy");
+app.UseMiddleware<ExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
