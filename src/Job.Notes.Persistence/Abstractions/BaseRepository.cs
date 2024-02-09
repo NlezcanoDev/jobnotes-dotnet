@@ -47,6 +47,7 @@ public abstract class BaseRepository<T, TF> : IBaseRepository<T, TF>
 
         entity.CreateDate = DateTime.Now;
         await Entities.AddAsync(entity);
+        await _service.SaveChangesAsync();
         return entity;
     }
 
@@ -60,6 +61,7 @@ public abstract class BaseRepository<T, TF> : IBaseRepository<T, TF>
         entity = _mapper.Map<TD, T>(data);
         entity.UpdateDate = DateTime.Now;
         Entities.Update(entity);
+        await _service.SaveChangesAsync();
         return entity;
     }
 
