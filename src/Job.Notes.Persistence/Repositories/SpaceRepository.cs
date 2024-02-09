@@ -36,7 +36,7 @@ public class SpaceRepository : BaseRepository<SpaceEntity, SpaceFilter>, ISpaceR
 
         return new PaginatedResponseModel<SpaceEntity>
         {
-            Count = cantSpaces,
+            Total = cantSpaces,
             Result = spaces
         };
     }

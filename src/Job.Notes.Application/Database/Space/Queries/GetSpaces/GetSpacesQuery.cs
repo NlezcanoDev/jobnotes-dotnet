@@ -52,7 +52,7 @@ public class GetSpacesQuery: IGetSpacesQuery
 
         return new PaginatedResponseModel<GetSpacesModel>
         {
-            Count = cantSpaces,
+            Total = cantSpaces,
             Result = spaceModelList
         };
     }
