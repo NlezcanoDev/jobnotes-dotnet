@@ -12,7 +12,7 @@ namespace Job.Notes.Persistence.Repositories;
 
 public class SpaceRepository : BaseRepository<SpaceEntity, SpaceFilter>, ISpaceRepository
 {
-    private DatabaseService _service;
+    private readonly DatabaseService _service;
     
     public SpaceRepository(DatabaseService service, IMapper mapper) : base(service, mapper)
     {

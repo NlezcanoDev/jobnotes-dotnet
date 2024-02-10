@@ -11,5 +11,5 @@ public class GetSpacesModel
     public SpaceStatusEnum Status { get; set; } 
     public StatsSpaceModel Stats { get; set; }
     public DateTime CreateDate { get; set; }
-    public DateTime UpdateDate { get; set; }
+    public DateTime? UpdateDate { get; set; }
 }
