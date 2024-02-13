@@ -16,6 +16,7 @@ public class MapperProfile: Profile
         CreateMap<SpaceEntity, GetSpacesModel>().ReverseMap();
         CreateMap<SpaceEntity, GetSpaceByIdModel>().ReverseMap();
         CreateMap<SpaceEntity, CreateSpaceModel>().ReverseMap();
+        CreateMap<SpaceEntity, UpdateSpaceModel>().ReverseMap();
         
         CreateMap<UserEntity, CreateUserModel>().ReverseMap();
         CreateMap<UserEntity, UpdateUserModel>().ReverseMap();

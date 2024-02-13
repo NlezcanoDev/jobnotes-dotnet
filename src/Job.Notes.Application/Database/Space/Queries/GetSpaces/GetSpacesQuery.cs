@@ -27,8 +27,9 @@ public class GetSpacesQuery: IGetSpacesQuery
             
         var totalSpaces = spaces.Count();
 
-        spaces = spaces.Where(s => s.Name.StartsWith(filter.SearchText) 
-                        && filter.SearchText == null || filter.Status.Contains(s.Status));
+        spaces = spaces
+            .Where(s => (string.IsNullOrEmpty(filter.SearchText) || s.Name.StartsWith(filter.SearchText)) 
+                        && (filter.Status == null || filter.Status.Contains(s.Status)));
 
         var cantSpacesFiltered = spaces.Count();
 

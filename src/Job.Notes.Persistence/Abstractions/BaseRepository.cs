@@ -53,6 +53,9 @@ public abstract class BaseRepository<T, TF> : IBaseRepository<T, TF>
 
     public async Task<T> Update<TD>(int id, TD data)
     {
+        if (data is null) 
+            throw new ArgumentNullException(nameof(data), "Data must have a value");
+        
         var entity = await Entities.FirstOrDefaultAsync(e => e.Id == id);
 
         if (entity is null)
@@ -60,8 +63,7 @@ public abstract class BaseRepository<T, TF> : IBaseRepository<T, TF>
 
         entity = _mapper.Map<TD, T>(data);
         entity.UpdateDate = DateTime.Now;
-        Entities.Update(entity);
-        await _service.SaveChangesAsync();
+        await _service.SaveAsync();
         return entity;
     }
 

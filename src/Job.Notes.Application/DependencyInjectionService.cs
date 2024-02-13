@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Job.Notes.Application.Configuration;
+using Job.Notes.Application.Database.Space.Commands.ArchiveSpace;
+using Job.Notes.Application.Database.Space.Commands.ChangeStatusSpace;
 using Job.Notes.Application.Database.Space.Queries.GetSpaceById;
 using Job.Notes.Application.Database.Space.Queries.GetSpaces;
 using Job.Notes.Application.Interfaces.User.Commands.CreateUser;
@@ -22,6 +24,9 @@ public static class DependencyInjectionService
         #region Space
         services.AddTransient<IGetSpacesQuery, GetSpacesQuery>();
         services.AddTransient<IGetSpaceByIdQuery, GetSpaceByIdQuery>();
+
+        services.AddTransient<IArchiveSpaceCommand, ArchiveSpaceCommand>();
+        services.AddTransient<IChangeStatusSpaceCommand, ChangeStatusSpaceCommand>();
         #endregion
 
 
