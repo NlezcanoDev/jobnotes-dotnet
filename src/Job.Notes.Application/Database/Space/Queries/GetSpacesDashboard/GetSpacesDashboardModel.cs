@@ -1,9 +1,9 @@
 ﻿using Job.Notes.Application.Database.Space.Queries.GetSpaces.Models;
 using Job.Notes.Domain.Enums;
 
-namespace Job.Notes.Application.Database.Space.Queries.GetSpaces;
+namespace Job.Notes.Application.Database.Space.Queries.GetSpacesDashboard;
 
-public class GetSpacesModel
+public class GetSpacesDashboardModel
 {
     public int Id { get; set; }
     public string Name { get; set; }

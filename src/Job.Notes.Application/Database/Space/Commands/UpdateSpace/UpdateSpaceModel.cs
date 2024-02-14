@@ -1,6 +1,6 @@
 ﻿using Job.Notes.Domain.Enums;
 
-namespace Job.Notes.Application.Database.Space.Repository.Models;
+namespace Job.Notes.Application.Database.Space.Commands.UpdateSpace;
 
 public class UpdateSpaceModel
 {

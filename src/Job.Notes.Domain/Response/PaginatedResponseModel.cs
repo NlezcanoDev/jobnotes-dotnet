@@ -1,4 +1,4 @@
-﻿namespace Job.Notes.Domain.Models;
+﻿namespace Job.Notes.Domain.Response;
 
 public class PaginatedResponseModel<T>
 {

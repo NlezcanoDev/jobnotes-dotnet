@@ -4,15 +4,12 @@ using Job.Notes.Domain.Models;
 
 namespace Job.Notes.Application.Repositories;
 
-
-public interface IBaseRepository<TE, TF>
+public interface IReadRepository<TE, TF>
     where TE : BaseEntity
     where TF : BaseFilter
+
 {
-    Task<PaginatedResponseModel<TE>> Get(TF filter);
-    IQueryable<TE> GetAll();
+    PaginatedModel<TE> Get(TF filter);
+    IQueryable<TE> GetAll(int limit);
     Task<TE> GetById(int id);
-    Task<TE> Create<TD>(TD data);
-    Task<TE> Update<TD>(int id, TD data);
-    Task Delete(int id);
 }

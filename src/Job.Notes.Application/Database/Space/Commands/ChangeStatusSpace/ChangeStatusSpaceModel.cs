@@ -4,5 +4,5 @@ namespace Job.Notes.Application.Database.Space.Commands.ChangeStatusSpace;
 
 public class ChangeStatusSpaceModel
 {
-    public SpaceStatusEnum status { get; set; }
+    public SpaceStatusEnum Status { get; set; }
 }

@@ -2,8 +2,12 @@
 using Job.Notes.Application.Configuration;
 using Job.Notes.Application.Database.Space.Commands.ArchiveSpace;
 using Job.Notes.Application.Database.Space.Commands.ChangeStatusSpace;
+using Job.Notes.Application.Database.Space.Commands.CreateSpace;
+using Job.Notes.Application.Database.Space.Commands.UpdateSpace;
 using Job.Notes.Application.Database.Space.Queries.GetSpaceById;
 using Job.Notes.Application.Database.Space.Queries.GetSpaces;
+using Job.Notes.Application.Database.Space.Queries.GetSpacesDashboard;
+using Job.Notes.Application.Database.User.Commands.CreateUser;
 using Job.Notes.Application.Interfaces.User.Commands.CreateUser;
 using Job.Notes.Application.Interfaces.User.Commands.DeleteUser;
 using Job.Notes.Application.Interfaces.User.Commands.UpdateUser;
@@ -22,14 +26,17 @@ public static class DependencyInjectionService
         services.AddSingleton(mapper.CreateMapper());
 
         #region Space
-        services.AddTransient<IGetSpacesQuery, GetSpacesQuery>();
-        services.AddTransient<IGetSpaceByIdQuery, GetSpaceByIdQuery>();
+        services.AddTransient<IGetSpacesDashboard, GetSpacesDashboard>();
+        services.AddTransient<IGetSpaceById, GetSpaceById>();
+        services.AddTransient<IGetSpaces, GetSpaces>();
 
-        services.AddTransient<IArchiveSpaceCommand, ArchiveSpaceCommand>();
+        services.AddTransient<IArchiveSpace, ArchiveSpace>();
         services.AddTransient<IChangeStatusSpaceCommand, ChangeStatusSpaceCommand>();
+        services.AddTransient<ICreateSpace, CreateSpace>();
+        services.AddTransient<IUpdateSpace, UpdateSpace>();
         #endregion
-
-
+        
+        
         #region User
         services.AddTransient<ICreateUserCommand, CreateUserCommand>();
         services.AddTransient<IUpdateUserCommand, UpdateUserCommand>();

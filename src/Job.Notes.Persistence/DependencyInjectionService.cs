@@ -1,8 +1,8 @@
 ﻿using Job.Notes.Application.Database;
-using Job.Notes.Application.Database.Space.Repository;
-using Job.Notes.Application.Repositories;
+using Job.Notes.Application.Database.Space.Repositories;
 using Job.Notes.Persistence.Database;
-using Job.Notes.Persistence.Repositories;
+using Job.Notes.Persistence.Repositories.Read;
+using Job.Notes.Persistence.Repositories.Write;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,7 +17,9 @@ public static class DependencyInjectionService
             opt.UseSqlServer(configuration["SQLConnectionString"]));
 
         services.AddScoped<IDatabaseService, DatabaseService>();
-        services.AddScoped<ISpaceRepository, SpaceRepository>();
+        
+        services.AddScoped<IReadSpaceRepository, ReadSpaceRepository>();
+        services.AddScoped<IWriteSpaceRepository, WriteSpaceRepository>();
 
         return services;
     }
