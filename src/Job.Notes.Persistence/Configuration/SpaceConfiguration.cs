@@ -18,5 +18,10 @@ public class SpaceConfiguration
         entityBuilder.Property(x => x.UpdateDate);
         entityBuilder.Property(x => x.CreatedBy).IsRequired();
         entityBuilder.Property(x => x.UpdatedBy);
+        
+        entityBuilder
+            .HasOne<ProjectEntity>(x => x.Project)
+            .WithMany(x => x.Spaces)
+            .HasForeignKey(x => x.ProjectId);
     }
 }

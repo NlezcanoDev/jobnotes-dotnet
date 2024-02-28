@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Job.Notes.Persistence.Configuration;
 
-public class ToDoConfiguration
+public class TaskConfiguration
 {
-    public ToDoConfiguration(EntityTypeBuilder<ToDoEntity> entityBuilder)
+    public TaskConfiguration(EntityTypeBuilder<TaskEntity> entityBuilder)
     {
         entityBuilder.HasKey(x => x.Id);
         entityBuilder.Property(x => x.Title).IsRequired();
@@ -20,8 +20,8 @@ public class ToDoConfiguration
         entityBuilder.Property(x => x.UpdatedBy);
 
         entityBuilder
-            .HasOne<AnnotationEntity>(x => x.Annotation)
-            .WithMany(x => x.ToDos)
-            .HasForeignKey(x => x.AnnotationId);
+            .HasOne<TaskListEntity>(x => x.TaskList)
+            .WithMany(x => x.Tasks)
+            .HasForeignKey(x => x.TaskListId);
     }
 }

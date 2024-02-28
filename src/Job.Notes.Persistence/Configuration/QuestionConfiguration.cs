@@ -20,8 +20,8 @@ public class QuestionConfiguration
         entityBuilder.Property(x => x.UpdatedBy);
 
         entityBuilder
-            .HasOne<AnnotationEntity>(x => x.Annotation)
+            .HasOne<QuestionListEntity>(x => x.QuestionList)
             .WithMany(x => x.Questions)
-            .HasForeignKey(x => x.AnnotationId);
+            .HasForeignKey(x => x.QuestionListId);
     }
 }

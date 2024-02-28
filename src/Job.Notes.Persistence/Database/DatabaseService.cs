@@ -12,10 +12,12 @@ public class DatabaseService : DbContext, IDatabaseService
     }
 
     public DbSet<UserEntity> User { get; set; }
+    public DbSet<ProjectEntity> Project { get; set; }
     public DbSet<SpaceEntity> Space { get; set; }
-    public DbSet<AnnotationEntity> Annotation { get; set; }
+    public DbSet<QuestionListEntity> QuestionList { get; set; }
     public DbSet<QuestionEntity> Question { get; set; }
-    public DbSet<ToDoEntity> ToDo { get; set; }
+    public DbSet<TaskListEntity> TaskList { get; set; }
+    public DbSet<TaskEntity> Task { get; set; }
     public DbSet<NoteEntity> Note { get; set; }
 
     public async Task<bool> SaveAsync()
@@ -32,10 +34,12 @@ public class DatabaseService : DbContext, IDatabaseService
     private void EntityConfiguration(ModelBuilder modelBuilder)
     {
         new UserConfiguration(modelBuilder.Entity<UserEntity>());
+        new ProjectConfiguration(modelBuilder.Entity<ProjectEntity>());
         new SpaceConfiguration(modelBuilder.Entity<SpaceEntity>());
-        new Annotationconfiguration(modelBuilder.Entity<AnnotationEntity>());
+        new QuestionListConfiguration(modelBuilder.Entity<QuestionListEntity>());
         new QuestionConfiguration(modelBuilder.Entity<QuestionEntity>());
-        new ToDoConfiguration(modelBuilder.Entity<ToDoEntity>());
+        new TaskListConfiguration(modelBuilder.Entity<TaskListEntity>());
+        new TaskConfiguration(modelBuilder.Entity<TaskEntity>());
         new NoteConfiguration(modelBuilder.Entity<NoteEntity>());
     }
 }
