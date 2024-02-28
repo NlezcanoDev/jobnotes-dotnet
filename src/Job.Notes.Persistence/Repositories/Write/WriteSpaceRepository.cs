@@ -8,7 +8,9 @@ namespace Job.Notes.Persistence.Repositories.Write;
 
 public class WriteSpaceRepository: WriteRepository<SpaceEntity>, IWriteSpaceRepository
 {
-    protected WriteSpaceRepository(DatabaseService service, IMapper mapper) : base(service, mapper)
+    
+    public WriteSpaceRepository(DatabaseService service, IMapper mapper) : base(service, mapper)
     {
     }
+
 }

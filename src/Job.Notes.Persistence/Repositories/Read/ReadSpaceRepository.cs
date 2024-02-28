@@ -1,7 +1,7 @@
 ﻿using Job.Notes.Application.Database.Space.Repositories;
+using Job.Notes.Application.Models.Filters;
+using Job.Notes.Application.Models.OrderBy;
 using Job.Notes.Domain.Entities;
-using Job.Notes.Domain.Enums.Order;
-using Job.Notes.Domain.Filters;
 using Job.Notes.Domain.Models;
 using Job.Notes.Persistence.Abstractions;
 using Job.Notes.Persistence.Database;
@@ -34,14 +34,19 @@ public class ReadSpaceRepository: ReadRepository<SpaceEntity, SpaceFilter>, IRea
 
         var count = entities.Count();
 
-        if (filter.OrderBy is not null)
+        switch (filter.OrderBy)
         {
-            if (filter.OrderBy == SpacesOrderByEnum.Relevancia)
-                entities = entities.OrderBy(s => s.Annotations.Count);
-            else if (filter.OrderBy == SpacesOrderByEnum.Fecha && filter.OrderAsc)
-                entities = entities.OrderBy(s => s.UpdateDate ?? s.CreateDate);
-            else
-                entities = entities.OrderByDescending(s => s.UpdateDate ?? s.CreateDate);
+            case SpacesOrderByEnum.Fecha:
+                entities = filter.OrderAsc
+                    ? entities.OrderBy(s => s.UpdateDate ?? s.CreateDate)
+                    : entities.OrderByDescending(s => s.UpdateDate ?? s.CreateDate);
+                break;
+            case SpacesOrderByEnum.Relevancia:
+                entities = entities.OrderBy(s => s.Status);
+                break;
+            default:
+                entities = entities.OrderBy(s => s.Name);
+                break;
         }
 
         var results = entities
@@ -59,7 +64,6 @@ public class ReadSpaceRepository: ReadRepository<SpaceEntity, SpaceFilter>, IRea
     public override async Task<SpaceEntity> GetById(int id)
     {
         var data = await _service.Space
-            .Include(s => s.Annotations)
             .FirstOrDefaultAsync(s => s.Id == id);
         if (data is null)
             throw new FileNotFoundException("Data was not found by Id");

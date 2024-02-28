@@ -1,5 +1,7 @@
 ﻿using Job.Notes.Application.Database;
+using Job.Notes.Application.Database.Project.Repositories;
 using Job.Notes.Application.Database.Space.Repositories;
+using Job.Notes.Application.Database.Space.Repositories.Write;
 using Job.Notes.Persistence.Database;
 using Job.Notes.Persistence.Repositories.Read;
 using Job.Notes.Persistence.Repositories.Write;
@@ -17,9 +19,16 @@ public static class DependencyInjectionService
             opt.UseSqlServer(configuration["SQLConnectionString"]));
 
         services.AddScoped<IDatabaseService, DatabaseService>();
-        
-        services.AddScoped<IReadSpaceRepository, ReadSpaceRepository>();
-        services.AddScoped<IWriteSpaceRepository, WriteSpaceRepository>();
+
+        #region ReadRepositories
+        services.AddTransient<IReadProjectRepository, ReadProjectRepository>();
+        services.AddTransient<IReadSpaceRepository, ReadSpaceRepository>();
+        #endregion
+
+        #region WriteRepositories
+        services.AddTransient<IWriteSpaceRepository, WriteSpaceRepository>();
+        services.AddTransient<IWriteProjectRepository, WriteProjectRepository>();
+        #endregion
 
         return services;
     }

@@ -1,6 +1,6 @@
-﻿using Job.Notes.Application.Repositories;
+﻿using Job.Notes.Application.Models.Filters;
+using Job.Notes.Application.Repositories;
 using Job.Notes.Domain.Entities;
-using Job.Notes.Domain.Filters;
 using Job.Notes.Domain.Models;
 using Job.Notes.Persistence.Database;
 using Microsoft.EntityFrameworkCore;

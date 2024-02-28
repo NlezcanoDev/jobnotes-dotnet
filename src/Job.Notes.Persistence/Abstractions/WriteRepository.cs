@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Job.Notes.Persistence.Abstractions;
 
-public class WriteRepository<T>: IWriteRepository<T>
+public abstract class WriteRepository<T>: IWriteRepository<T>
     where T : BaseEntity
 {
     private readonly DatabaseService _service;
@@ -28,7 +28,7 @@ public class WriteRepository<T>: IWriteRepository<T>
 
         entity.CreateDate = DateTime.Now;
         await Entities.AddAsync(entity);
-        await _service.SaveChangesAsync();
+        await _service.SaveAsync();
         return entity;
     }
 
