@@ -1,4 +1,4 @@
-﻿namespace Job.Notes.Domain.Enums.Order;
+﻿namespace Job.Notes.Application.Models.OrderBy;
 
 public enum SpacesOrderByEnum
 {

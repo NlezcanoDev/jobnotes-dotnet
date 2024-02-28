@@ -1,5 +1,5 @@
-﻿using Job.Notes.Domain.Entities;
-using Job.Notes.Domain.Filters;
+﻿using Job.Notes.Application.Models.Filters;
+using Job.Notes.Domain.Entities;
 using Job.Notes.Domain.Models;
 
 namespace Job.Notes.Application.Repositories;

@@ -1,4 +1,4 @@
-﻿namespace Job.Notes.Domain.Response;
+﻿namespace Job.Notes.Application.Models;
 
 public class BaseResponseModel
 {

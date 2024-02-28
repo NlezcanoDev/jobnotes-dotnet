@@ -1,4 +1,4 @@
-﻿namespace Job.Notes.Domain.Filters;
+﻿namespace Job.Notes.Application.Models.Filters;
 
 public class BaseFilter
 {
