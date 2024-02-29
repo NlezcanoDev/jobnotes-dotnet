@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
 using Job.Notes.Application.Configuration;
+using Job.Notes.Application.Database.Project.Commands.CreateProject;
+using Job.Notes.Application.Database.Project.Commands.DeleteProject;
+using Job.Notes.Application.Database.Project.Queries.GetProjectDashboard;
 using Job.Notes.Application.Database.Space.Commands.ArchiveSpace;
 using Job.Notes.Application.Database.Space.Commands.ChangeStatusSpace;
 using Job.Notes.Application.Database.Space.Commands.CreateSpace;
@@ -8,9 +11,8 @@ using Job.Notes.Application.Database.Space.Queries.GetSpaceById;
 using Job.Notes.Application.Database.Space.Queries.GetSpaces;
 using Job.Notes.Application.Database.Space.Queries.GetSpacesDashboard;
 using Job.Notes.Application.Database.User.Commands.CreateUser;
-using Job.Notes.Application.Interfaces.User.Commands.CreateUser;
-using Job.Notes.Application.Interfaces.User.Commands.DeleteUser;
-using Job.Notes.Application.Interfaces.User.Commands.UpdateUser;
+using Job.Notes.Application.Database.User.Commands.DeleteUser;
+using Job.Notes.Application.Database.User.Commands.UpdateUser;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Job.Notes.Application;
@@ -24,6 +26,13 @@ public static class DependencyInjectionService
             config.AddProfile(new MapperProfile());
         });
         services.AddSingleton(mapper.CreateMapper());
+
+        #region Project
+        services.AddTransient<IGetProjectDashboard, GetProjectDashboard>();
+
+        services.AddTransient<ICreateProject, CreateProject>();
+        services.AddTransient<IDeleteProject, DeleteProject>();
+        #endregion
 
         #region Space
         services.AddTransient<IGetSpacesDashboard, GetSpacesDashboard>();

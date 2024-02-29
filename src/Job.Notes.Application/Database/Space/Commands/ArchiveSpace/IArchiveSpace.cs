@@ -1,6 +1,8 @@
-﻿namespace Job.Notes.Application.Database.Space.Commands.ArchiveSpace;
+﻿using Job.Notes.Domain.Entities;
+
+namespace Job.Notes.Application.Database.Space.Commands.ArchiveSpace;
 
 public interface IArchiveSpace
 {
-    Task Execute(int id);
+    Task<SpaceEntity> Execute(int id);
 }

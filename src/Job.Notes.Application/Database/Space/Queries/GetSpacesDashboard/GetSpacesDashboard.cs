@@ -1,10 +1,7 @@
-﻿using Job.Notes.Application.Database.Space.Queries.GetSpaces;
-using Job.Notes.Application.Database.Space.Queries.GetSpaces.Models;
+﻿using Job.Notes.Application.Database.Space.Queries.GetSpacesDashboard.Models;
 using Job.Notes.Application.Database.Space.Repositories;
-using Job.Notes.Domain.Enums;
-using Job.Notes.Domain.Filters;
-using Job.Notes.Domain.Response;
-using Microsoft.EntityFrameworkCore;
+using Job.Notes.Application.Models.Filters;
+using Job.Notes.Domain.Models;
 
 namespace Job.Notes.Application.Database.Space.Queries.GetSpacesDashboard;
 
@@ -17,7 +14,7 @@ public class GetSpacesDashboard: IGetSpacesDashboard
         _repository = repository;
     }
 
-    public async Task<PaginatedResponseModel<GetSpacesDashboardModel>> Execute(SpaceFilter filter)
+    public PaginatedModel<GetSpacesDashboardModel> Execute(SpaceFilter filter)
     {
         var data = _repository.Get(filter);
         var spaceModel = data.Result.Select(s => new GetSpacesDashboardModel()
@@ -28,21 +25,19 @@ public class GetSpacesDashboard: IGetSpacesDashboard
             Status = s.Status,
             Stats = new StatsSpaceModel
             {
-                NoteCount = s.Annotations.Count(a => a.AnnotationType == AnnotationTypeEnum.Note),
-                QuestionCount = s.Annotations.Count(a => a.AnnotationType == AnnotationTypeEnum.Question),
-                ToDoCount = s.Annotations.Count(a => a.AnnotationType == AnnotationTypeEnum.ToDo)
+                NoteCount = s.Notes.Count(),
+                QuestionCount = s.QuestionList.Count(),
+                TaskCount = s.TaskList.Count()
             },
             CreateDate = s.CreateDate,
             UpdateDate = s.UpdateDate
         });
-        
-        var spaceModelList = await spaceModel.ToListAsync();
 
-        return new PaginatedResponseModel<GetSpacesDashboardModel>
+        return new PaginatedModel<GetSpacesDashboardModel>
         {
             Total = data.Total,
             Count = data.Count,
-            Result = spaceModelList
+            Result = spaceModel
         };
     }
 }

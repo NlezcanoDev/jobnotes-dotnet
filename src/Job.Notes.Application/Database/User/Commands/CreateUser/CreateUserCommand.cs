@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Job.Notes.Application.Interfaces.User.Commands.CreateUser;
 using Job.Notes.Domain.Entities;
 
 namespace Job.Notes.Application.Database.User.Commands.CreateUser;

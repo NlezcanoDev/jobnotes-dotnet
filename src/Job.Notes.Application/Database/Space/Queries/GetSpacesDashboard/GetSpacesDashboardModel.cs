@@ -1,4 +1,4 @@
-﻿using Job.Notes.Application.Database.Space.Queries.GetSpaces.Models;
+﻿using Job.Notes.Application.Database.Space.Queries.GetSpacesDashboard.Models;
 using Job.Notes.Domain.Enums;
 
 namespace Job.Notes.Application.Database.Space.Queries.GetSpacesDashboard;

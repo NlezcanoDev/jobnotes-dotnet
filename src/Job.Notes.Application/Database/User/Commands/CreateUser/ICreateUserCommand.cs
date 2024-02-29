@@ -1,4 +1,4 @@
-﻿namespace Job.Notes.Application.Interfaces.User.Commands.CreateUser;
+﻿namespace Job.Notes.Application.Database.User.Commands.CreateUser;
 
 public interface ICreateUserCommand
 {

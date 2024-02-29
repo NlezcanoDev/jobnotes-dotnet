@@ -1,4 +1,4 @@
-﻿namespace Job.Notes.Application.Interfaces.User.Commands.DeleteUser;
+﻿namespace Job.Notes.Application.Database.User.Commands.DeleteUser;
 
 public interface IDeleteUserCommand
 {

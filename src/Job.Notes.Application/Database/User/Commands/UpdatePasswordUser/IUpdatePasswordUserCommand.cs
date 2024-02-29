@@ -1,4 +1,4 @@
-﻿namespace Job.Notes.Application.Interfaces.User.Commands.UpdatePasswordUser;
+﻿namespace Job.Notes.Application.Database.User.Commands.UpdatePasswordUser;
 
 public interface IUpdatePasswordUserCommand
 {

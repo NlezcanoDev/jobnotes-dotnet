@@ -1,4 +1,5 @@
 ﻿using Job.Notes.Application.Database.Space.Repositories;
+using Job.Notes.Domain.Entities;
 
 namespace Job.Notes.Application.Database.Space.Commands.ArchiveSpace;
 
@@ -11,8 +12,8 @@ public class ArchiveSpace: IArchiveSpace
         _repository = repository;
     }
 
-    public async Task Execute(int id)
+    public async Task<SpaceEntity> Execute(int id)
     {
-        await _repository.PartialUpdate(id, new {Enabled = false});
+        return await _repository.PartialUpdate(id, new {Enabled = false});
     }
 }

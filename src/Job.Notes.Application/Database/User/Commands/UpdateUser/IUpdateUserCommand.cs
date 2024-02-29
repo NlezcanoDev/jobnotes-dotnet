@@ -1,4 +1,4 @@
-﻿namespace Job.Notes.Application.Interfaces.User.Commands.UpdateUser;
+﻿namespace Job.Notes.Application.Database.User.Commands.UpdateUser;
 
 public interface IUpdateUserCommand
 {

@@ -1,7 +1,6 @@
-﻿using Job.Notes.Application.Database;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace Job.Notes.Application.Interfaces.User.Commands.UpdatePasswordUser;
+namespace Job.Notes.Application.Database.User.Commands.UpdatePasswordUser;
 
 public class UpdatePasswordUserCommand: IUpdatePasswordUserCommand
 {

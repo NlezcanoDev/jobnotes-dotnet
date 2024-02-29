@@ -1,6 +1,7 @@
 ﻿using Job.Notes.Application.Database.Space.Repositories;
+using Job.Notes.Application.Models.Filters;
 using Job.Notes.Domain.Entities;
-using Job.Notes.Domain.Filters;
+using Job.Notes.Domain.Models;
 using Job.Notes.Domain.Response;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,16 +16,9 @@ public class GetSpaces: IGetSpaces
         _repository = repository;
     }
 
-    public async Task<PaginatedResponseModel<SpaceEntity>> Execute(SpaceFilter filter)
+    public PaginatedModel<SpaceEntity> Execute(SpaceFilter filter)
     {
         var data = _repository.Get(filter);
-        var result = await  data.Result.ToListAsync();
-
-        return new PaginatedResponseModel<SpaceEntity>
-        {
-            Total = data.Total,
-            Count = data.Count,
-            Result = result
-        };
+        return data;
     }
 }

@@ -22,14 +22,12 @@
 
 
     <ItemGroup>
-      <Folder Include="Database\Annotation\Commands\" />
-      <Folder Include="Database\Annotation\Queries\" />
       <Folder Include="Database\Note\Commands\" />
       <Folder Include="Database\Note\Queries\" />
       <Folder Include="Database\Question\Commands\" />
       <Folder Include="Database\Question\Queries\" />
-      <Folder Include="Database\ToDo\Commands\" />
-      <Folder Include="Database\ToDo\Queries\" />
+      <Folder Include="Database\Task\Commands\" />
+      <Folder Include="Database\Task\Queries\" />
       <Folder Include="Database\User\Queries\" />
     </ItemGroup>
 
