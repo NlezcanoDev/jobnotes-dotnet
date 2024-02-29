@@ -1,5 +1,4 @@
 ﻿using Job.Notes.Application.Database.Project.Repositories;
-using Job.Notes.Application.Database.Space.Repositories.Write;
 
 namespace Job.Notes.Application.Database.Project.Commands.DeleteProject;
 

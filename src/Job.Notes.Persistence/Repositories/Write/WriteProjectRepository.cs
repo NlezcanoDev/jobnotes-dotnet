@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Job.Notes.Application.Database.Space.Repositories.Write;
+using Job.Notes.Application.Database.Project.Repositories;
 using Job.Notes.Domain.Entities;
 using Job.Notes.Persistence.Abstractions;
 using Job.Notes.Persistence.Database;

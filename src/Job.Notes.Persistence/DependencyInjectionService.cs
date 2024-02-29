@@ -1,7 +1,6 @@
 ﻿using Job.Notes.Application.Database;
 using Job.Notes.Application.Database.Project.Repositories;
 using Job.Notes.Application.Database.Space.Repositories;
-using Job.Notes.Application.Database.Space.Repositories.Write;
 using Job.Notes.Persistence.Database;
 using Job.Notes.Persistence.Repositories.Read;
 using Job.Notes.Persistence.Repositories.Write;

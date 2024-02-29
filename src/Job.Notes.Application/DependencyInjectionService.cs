@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Job.Notes.Application.Configuration;
+using Job.Notes.Application.Database.Project.Commands.ArchiveProject;
 using Job.Notes.Application.Database.Project.Commands.CreateProject;
 using Job.Notes.Application.Database.Project.Commands.DeleteProject;
 using Job.Notes.Application.Database.Project.Queries.GetProjectDashboard;
@@ -31,6 +32,7 @@ public static class DependencyInjectionService
         services.AddTransient<IGetProjectDashboard, GetProjectDashboard>();
 
         services.AddTransient<ICreateProject, CreateProject>();
+        services.AddTransient<IArchiveProject, ArchiveProject>();
         services.AddTransient<IDeleteProject, DeleteProject>();
         #endregion
 
