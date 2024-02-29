@@ -15,13 +15,13 @@ builder.Services
     .AddExternal(builder.Configuration)
     .AddPersistence(builder.Configuration)
     .AddCors(options =>
-{
-    options.AddPolicy("CorsPolicy",
-        builder => builder
-            .AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader());
-});
+        {
+            options.AddPolicy("CorsPolicy",
+                policyBuilder => policyBuilder
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+        });
 
 builder.Services.AddControllers();
 

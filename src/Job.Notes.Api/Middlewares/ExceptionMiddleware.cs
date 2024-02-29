@@ -1,6 +1,5 @@
 ﻿using System.Net;
-using Job.Notes.Domain.Models;
-using Job.Notes.Domain.Response;
+using Job.Notes.Application.Models;
 using NuGet.Protocol;
 
 namespace Job.Notes.Api.Middlewares;

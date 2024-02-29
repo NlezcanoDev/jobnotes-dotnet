@@ -5,7 +5,7 @@ using Job.Notes.Application.Database.Space.Commands.UpdateSpace;
 using Job.Notes.Application.Database.Space.Queries.GetSpaceById;
 using Job.Notes.Application.Database.Space.Queries.GetSpaces;
 using Job.Notes.Application.Database.Space.Queries.GetSpacesDashboard;
-using Job.Notes.Domain.Filters;
+using Job.Notes.Application.Models.Filters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Job.Notes.Api.Controllers;
@@ -15,11 +15,11 @@ namespace Job.Notes.Api.Controllers;
 public class SpacesController: ControllerBase
 {
     [HttpGet]
-    public async Task<IActionResult> Get(
+    public IActionResult Get(
         [FromQuery]SpaceFilter filter,
         [FromServices] IGetSpaces getSpaces)
     {
-        var data = await getSpaces.Execute(filter);
+        var data = getSpaces.Execute(filter);
         return Ok(data);
     }
 
@@ -31,12 +31,12 @@ public class SpacesController: ControllerBase
     }
     
     [HttpGet("dashboard")]
-    public async Task<IActionResult> GetResume(
+    public IActionResult GetResume(
         [FromQuery] SpaceFilter filter,
         [FromServices] IGetSpacesDashboard getSpacesDashboard
     )
     {
-        var data =  await getSpacesDashboard.Execute(filter);
+        var data =  getSpacesDashboard.Execute(filter);
         return Ok(data);
     }
     
