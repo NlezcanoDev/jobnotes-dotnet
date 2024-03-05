@@ -26,8 +26,8 @@ public class GetSpacesDashboard: IGetSpacesDashboard
             Stats = new StatsSpaceModel
             {
                 NoteCount = s.Notes.Count(),
-                QuestionCount = s.QuestionList.Count(),
-                TaskCount = s.TaskList.Count()
+                QuestionCount = s.QuestionsLists.Count(),
+                TaskCount = s.TasksLists.Count()
             },
             CreateDate = s.CreateDate,
             UpdateDate = s.UpdateDate

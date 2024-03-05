@@ -12,7 +12,7 @@ public class UserConfiguration
         entityBuilder.Property(x => x.Name).IsRequired();
         entityBuilder.Property(x => x.LastName).IsRequired();
         entityBuilder.Property(x => x.UserName).IsRequired();
-        entityBuilder.Property(x => x.Email).IsRequired();
+        entityBuilder.Property(x => x.Mail).IsRequired();
         entityBuilder.Property(x => x.Password).IsRequired();
         entityBuilder.Property(x => x.Role).HasConversion<byte>();
         entityBuilder.Property(x => x.ProfileImg);
@@ -24,6 +24,6 @@ public class UserConfiguration
         entityBuilder.Property(x => x.UpdatedBy);
 
         entityBuilder.HasIndex(x => x.UserName).IsUnique();
-        entityBuilder.HasIndex(x => x.Email).IsUnique();
+        entityBuilder.HasIndex(x => x.Mail).IsUnique();
     }
 }

@@ -19,7 +19,7 @@ public class TaskListConfiguration
 
         entityBuilder
             .HasOne<SpaceEntity>(x => x.Space)
-            .WithMany(x => x.TaskList)
+            .WithMany(x => x.TasksLists)
             .HasForeignKey(x => x.SpaceId);
     }
 }

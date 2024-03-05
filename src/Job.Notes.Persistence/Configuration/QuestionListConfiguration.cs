@@ -19,7 +19,7 @@ public class QuestionListConfiguration
         
         entityBuilder
             .HasOne<SpaceEntity>(x => x.Space)
-            .WithMany(x => x.QuestionList)
+            .WithMany(x => x.QuestionsLists)
             .HasForeignKey(x => x.SpaceId);
     }
 }

@@ -9,7 +9,7 @@ public class SpaceEntity: BaseEntity
     public SpaceStatusEnum Status { get; set; }
     public int ProjectId { get; set; }
     public ProjectEntity Project { get; set; }
-    public ICollection<TaskListEntity> TaskList { get; set; }
-    public ICollection<QuestionListEntity> QuestionList { get; set; }
+    public ICollection<TaskListEntity> TasksLists { get; set; }
+    public ICollection<QuestionListEntity> QuestionsLists { get; set; }
     public ICollection<NoteEntity> Notes { get; set; }
 }

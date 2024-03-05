@@ -12,5 +12,4 @@ public class WriteSpaceRepository: WriteRepository<SpaceEntity>, IWriteSpaceRepo
     public WriteSpaceRepository(DatabaseService service, IMapper mapper) : base(service, mapper)
     {
     }
-
 }
