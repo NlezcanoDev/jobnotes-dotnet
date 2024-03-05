@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Job.Notes.External.Jwt.GetTokenJwt;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Job.Notes.External;
@@ -9,7 +10,8 @@ public static class DependencyInjectionService
     {
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
-        
+
+        services.AddSingleton<IGetTokenJwtModel, GetTokenJwtService>();
         return services;
     }
 }
