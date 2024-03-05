@@ -1,6 +1,7 @@
 ﻿using Job.Notes.Application.Database.Project.Commands.ArchiveProject;
 using Job.Notes.Application.Database.Project.Commands.CreateProject;
 using Job.Notes.Application.Database.Project.Commands.DeleteProject;
+using Job.Notes.Application.Database.Project.Commands.UpdateProject;
 using Job.Notes.Application.Database.Project.Queries.GetProjectDashboard;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,6 +25,16 @@ public class ProjectController : ControllerBase
     {
         var data = await createProject.Execute(model);
         return Created("/project", data);
+    }
+
+    [HttpPut("{id:int}")]
+    public async Task<IActionResult> Update(
+        int id,
+        [FromBody] UpdateProjectModel model,
+        [FromServices] IUpdateProject updateProject)
+    {
+        var data = await updateProject.Execute(id, model);
+        return Ok(data);
     }
 
     [HttpPut("archive/{id:int}")]
