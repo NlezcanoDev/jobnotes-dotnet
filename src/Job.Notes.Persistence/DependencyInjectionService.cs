@@ -1,6 +1,7 @@
 ﻿using Job.Notes.Application.Database;
 using Job.Notes.Application.Database.Project.Repositories;
 using Job.Notes.Application.Database.Space.Repositories;
+using Job.Notes.Application.Database.User.Repositories;
 using Job.Notes.Persistence.Database;
 using Job.Notes.Persistence.Repositories.Read;
 using Job.Notes.Persistence.Repositories.Write;
@@ -22,11 +23,13 @@ public static class DependencyInjectionService
         #region ReadRepositories
         services.AddTransient<IReadProjectRepository, ReadProjectRepository>();
         services.AddTransient<IReadSpaceRepository, ReadSpaceRepository>();
+        services.AddTransient<IReadUserRepository, ReadUserRepository>();
         #endregion
 
         #region WriteRepositories
         services.AddTransient<IWriteSpaceRepository, WriteSpaceRepository>();
         services.AddTransient<IWriteProjectRepository, WriteProjectRepository>();
+        services.AddTransient<IWriteUserRepository, WriteUserRepository>();
         #endregion
 
         return services;

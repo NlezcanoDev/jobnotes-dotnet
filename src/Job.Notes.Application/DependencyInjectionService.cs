@@ -3,6 +3,7 @@ using Job.Notes.Application.Configuration;
 using Job.Notes.Application.Database.Project.Commands.ArchiveProject;
 using Job.Notes.Application.Database.Project.Commands.CreateProject;
 using Job.Notes.Application.Database.Project.Commands.DeleteProject;
+using Job.Notes.Application.Database.Project.Commands.UpdateProject;
 using Job.Notes.Application.Database.Project.Queries.GetProjectDashboard;
 using Job.Notes.Application.Database.Space.Commands.ArchiveSpace;
 using Job.Notes.Application.Database.Space.Commands.ChangeStatusSpace;
@@ -32,6 +33,7 @@ public static class DependencyInjectionService
         services.AddTransient<IGetProjectDashboard, GetProjectDashboard>();
 
         services.AddTransient<ICreateProject, CreateProject>();
+        services.AddTransient<IUpdateProject, UpdateProject>();
         services.AddTransient<IArchiveProject, ArchiveProject>();
         services.AddTransient<IDeleteProject, DeleteProject>();
         #endregion

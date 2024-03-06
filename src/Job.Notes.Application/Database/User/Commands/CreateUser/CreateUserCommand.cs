@@ -1,25 +1,32 @@
-﻿using AutoMapper;
+﻿using Job.Notes.Application.Database.User.Repositories;
+using Job.Notes.Application.Security;
 using Job.Notes.Domain.Entities;
 
 namespace Job.Notes.Application.Database.User.Commands.CreateUser;
 
 public class CreateUserCommand: ICreateUserCommand
 {
-    private readonly IDatabaseService _databaseService;
-    private readonly IMapper _mapper;
+    private readonly IReadUserRepository _readRepository;
+    private readonly IWriteUserRepository _writeRepository;
 
-    public CreateUserCommand(IDatabaseService databaseService, IMapper mapper)
+    public CreateUserCommand(
+        IReadUserRepository readRepository, 
+        IWriteUserRepository writeRepository)
     {
-        _databaseService = databaseService;
-        _mapper = mapper;
+        _readRepository = readRepository;
+        _writeRepository = writeRepository;
     }
 
-    public async Task<CreateUserModel> Execute(CreateUserModel model)
+    public async Task<UserEntity> Execute(CreateUserModel model)
     {
-        var entity = _mapper.Map<UserEntity>(model);
-        await _databaseService.User.AddAsync(entity);
-        await _databaseService.SaveAsync();
+        var isUserRepeated = _readRepository.IsUserRepeated(model.Mail);
 
-        return model;
+        if (isUserRepeated)
+            throw new ArgumentException("User is already existing");
+        
+        model.Password = HashService.GenerateSha256Hash(model.Password);
+        var entity = await _writeRepository.Create(model);
+        
+        return entity;
     }
 }
