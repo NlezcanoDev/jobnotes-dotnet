@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Job.Notes.Persistence.Configuration;
 
-public class ProjectConfiguration
+public static class ProjectConfiguration
 {
-    public ProjectConfiguration(EntityTypeBuilder<ProjectEntity> entityBuilder)
+    public static void Configure(EntityTypeBuilder<ProjectEntity> entityBuilder)
     {
         entityBuilder.HasKey(x => x.Id);
         entityBuilder.Property(x => x.Name).IsRequired();

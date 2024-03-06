@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Job.Notes.Persistence.Configuration;
 
-public class SpaceConfiguration
+public static class SpaceConfiguration
 {
-    public SpaceConfiguration(EntityTypeBuilder<SpaceEntity> entityBuilder)
+    public static void Configure(EntityTypeBuilder<SpaceEntity> entityBuilder)
     {
         entityBuilder.HasKey(x => x.Id);
         entityBuilder.Property(x => x.Name).IsRequired();

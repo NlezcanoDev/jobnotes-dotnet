@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Job.Notes.Persistence.Configuration;
 
-public class TaskListConfiguration
+public static class TaskListConfiguration
 {
-    public TaskListConfiguration(EntityTypeBuilder<TaskListEntity> entityBuilder)
+    public static void Configure(EntityTypeBuilder<TaskListEntity> entityBuilder)
     {
         entityBuilder.HasKey(x => x.Id);
         entityBuilder.Property(x => x.Name).IsRequired();

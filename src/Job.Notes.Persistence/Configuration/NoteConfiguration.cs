@@ -1,12 +1,13 @@
 ﻿using Job.Notes.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.Extensions.Options;
 
 namespace Job.Notes.Persistence.Configuration;
 
-public class NoteConfiguration
+public static class NoteConfiguration
 {
-    public NoteConfiguration(EntityTypeBuilder<NoteEntity> entityBuilder)
+    public static void Configure(EntityTypeBuilder<NoteEntity> entityBuilder)
     {
         entityBuilder.HasKey(x => x.Id);
         entityBuilder.Property(x => x.Title).IsRequired();
