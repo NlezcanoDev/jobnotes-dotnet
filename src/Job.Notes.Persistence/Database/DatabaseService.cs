@@ -11,7 +11,10 @@ public class DatabaseService : DbContext, IDatabaseService
     {
     }
 
+    // Users
     public DbSet<UserEntity> User { get; set; }
+    
+    // Application
     public DbSet<ProjectEntity> Project { get; set; }
     public DbSet<SpaceEntity> Space { get; set; }
     public DbSet<QuestionListEntity> QuestionList { get; set; }
@@ -19,7 +22,11 @@ public class DatabaseService : DbContext, IDatabaseService
     public DbSet<TaskListEntity> TaskList { get; set; }
     public DbSet<TaskEntity> Task { get; set; }
     public DbSet<NoteEntity> Note { get; set; }
+    
+    // Security
     public DbSet<RegistrationSecurityEntity> RegistrationSecurity { get; set; }
+    public DbSet<SecurityEntity> Security { get; set; }
+    public DbSet<AuthEntity> Auth { get; set; }
 
     public async Task<bool> SaveAsync()
     {
@@ -47,6 +54,8 @@ public class DatabaseService : DbContext, IDatabaseService
         NoteConfiguration.Configure(modelBuilder.Entity<NoteEntity>());
         
         // Security
+        SecurityConfiguration.Configure(modelBuilder.Entity<SecurityEntity>());
         RegistrationSecurityConfiguration.Configure(modelBuilder.Entity<RegistrationSecurityEntity>());
+        AuthConfiguration.Configure(modelBuilder.Entity<AuthEntity>());
     }
 }
