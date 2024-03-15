@@ -28,7 +28,10 @@ public abstract class WriteRepository<T>: IWriteRepository<T>
 
         entity.CreateDate = DateTime.Now;
         await Entities.AddAsync(entity);
-        await _service.SaveAsync();
+        
+        var result = await _service.SaveAsync();
+        if (!result) throw new DbUpdateException();
+        
         return entity;
     }
 

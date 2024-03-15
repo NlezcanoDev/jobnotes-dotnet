@@ -1,5 +1,6 @@
 ﻿using Job.Notes.Application.Database;
 using Job.Notes.Application.Database.Project.Repositories;
+using Job.Notes.Application.Database.Security.Repositories;
 using Job.Notes.Application.Database.Space.Repositories;
 using Job.Notes.Application.Database.User.Repositories;
 using Job.Notes.Persistence.Database;
@@ -21,15 +22,27 @@ public static class DependencyInjectionService
         services.AddScoped<IDatabaseService, DatabaseService>();
 
         #region ReadRepositories
+        // Users
+        services.AddTransient<IReadUserRepository, ReadUserRepository>();
+        
+        // Application
         services.AddTransient<IReadProjectRepository, ReadProjectRepository>();
         services.AddTransient<IReadSpaceRepository, ReadSpaceRepository>();
-        services.AddTransient<IReadUserRepository, ReadUserRepository>();
+        
+        // Security
+        services.AddTransient<IReadSecurityRepository, ReadSecurityRepository>();
         #endregion
 
         #region WriteRepositories
+        // Users
+        services.AddTransient<IWriteUserRepository, WriteUserRepository>();
+        
+        // Application
         services.AddTransient<IWriteSpaceRepository, WriteSpaceRepository>();
         services.AddTransient<IWriteProjectRepository, WriteProjectRepository>();
-        services.AddTransient<IWriteUserRepository, WriteUserRepository>();
+        
+        // Security
+        services.AddTransient<IWriteSecurityRepository, WriteSecurityRepository>();
         #endregion
 
         return services;
