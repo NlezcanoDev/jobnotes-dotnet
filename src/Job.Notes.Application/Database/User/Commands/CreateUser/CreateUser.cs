@@ -4,12 +4,12 @@ using Job.Notes.Domain.Entities;
 
 namespace Job.Notes.Application.Database.User.Commands.CreateUser;
 
-public class CreateUserCommand: ICreateUserCommand
+public class CreateUser: ICreateUser
 {
     private readonly IReadUserRepository _readRepository;
     private readonly IWriteUserRepository _writeRepository;
 
-    public CreateUserCommand(
+    public CreateUser(
         IReadUserRepository readRepository, 
         IWriteUserRepository writeRepository)
     {
@@ -19,14 +19,10 @@ public class CreateUserCommand: ICreateUserCommand
 
     public async Task<UserEntity> Execute(CreateUserModel model)
     {
-        var isUserRepeated = _readRepository.IsUserRepeated(model.Mail);
-
-        if (isUserRepeated)
-            throw new ArgumentException("User is already existing");
+        var isUserRepeated = _readRepository.IsUserDuplicated(model.Mail);
+        if (isUserRepeated) throw new ArgumentException("User is already existing");
         
-        model.Password = HashService.GenerateSha256Hash(model.Password);
         var entity = await _writeRepository.Create(model);
-        
         return entity;
     }
 }

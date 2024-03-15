@@ -5,6 +5,7 @@ using Job.Notes.Application.Database.Project.Commands.CreateProject;
 using Job.Notes.Application.Database.Project.Commands.DeleteProject;
 using Job.Notes.Application.Database.Project.Commands.UpdateProject;
 using Job.Notes.Application.Database.Project.Queries.GetProjectDashboard;
+using Job.Notes.Application.Database.Security.Commands.CreateSecurity;
 using Job.Notes.Application.Database.Space.Commands.ArchiveSpace;
 using Job.Notes.Application.Database.Space.Commands.ChangeStatusSpace;
 using Job.Notes.Application.Database.Space.Commands.CreateSpace;
@@ -13,6 +14,7 @@ using Job.Notes.Application.Database.Space.Queries.GetSpaceById;
 using Job.Notes.Application.Database.Space.Queries.GetSpaces;
 using Job.Notes.Application.Database.Space.Queries.GetSpacesDashboard;
 using Job.Notes.Application.Database.User.Commands.CreateUser;
+using Job.Notes.Application.Database.User.Commands.CreateUsername;
 using Job.Notes.Application.Database.User.Commands.DeleteUser;
 using Job.Notes.Application.Database.User.Commands.UpdateUser;
 using Microsoft.Extensions.DependencyInjection;
@@ -51,9 +53,14 @@ public static class DependencyInjectionService
         
         
         #region User
-        services.AddTransient<ICreateUserCommand, CreateUserCommand>();
+        services.AddTransient<ICreateUser, CreateUser>();
+        services.AddTransient<ICreateUsername, CreateUsername>();
         services.AddTransient<IUpdateUserCommand, UpdateUserCommand>();
         services.AddTransient<IDeleteUserCommand, DeleteUserCommand>();
+        #endregion
+
+        #region Security
+        services.AddTransient<ICreateSecurity, CreateSecurity>();
         #endregion
         
 

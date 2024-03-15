@@ -6,5 +6,7 @@ namespace Job.Notes.Application.Database.User.Repositories;
 
 public interface IReadUserRepository: IReadRepository<UserEntity, BaseFilter>
 {
-    public bool IsUserRepeated(string mail);
+    bool IsUserDuplicated(string mail);
+    bool IsUsernameDuplicated(string username);
+    Task<UserEntity> GetInactiveUserById(int id);
 }

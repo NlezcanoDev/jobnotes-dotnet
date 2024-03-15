@@ -16,12 +16,14 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Job.Notes.Domain\Job.Notes.Domain.csproj" />
+      <ProjectReference Include="..\Job.Notes.External\Job.Notes.External.csproj" />
     </ItemGroup>
 
 
 
 
     <ItemGroup>
+      <Folder Include="Database\Auth\Commands\" />
       <Folder Include="Database\Note\Commands\" />
       <Folder Include="Database\Note\Queries\" />
       <Folder Include="Database\Question\Commands\" />

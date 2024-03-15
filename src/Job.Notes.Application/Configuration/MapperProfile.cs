@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using Job.Notes.Application.Database.Project.Queries.GetProjectDashboard;
+using Job.Notes.Application.Database.Security.Commands.CreateSecurity;
 using Job.Notes.Application.Database.Space.Commands.CreateSpace;
 using Job.Notes.Application.Database.Space.Commands.UpdateSpace;
 using Job.Notes.Application.Database.Space.Queries.GetSpaceById;
 using Job.Notes.Application.Database.Space.Queries.GetSpacesDashboard;
 using Job.Notes.Application.Database.User.Commands.CreateUser;
-using Job.Notes.Application.Database.User.Commands.UpdatePasswordUser;
+using Job.Notes.Application.Database.User.Commands.CreateUsername;
 using Job.Notes.Application.Database.User.Commands.UpdateUser;
 using Job.Notes.Domain.Entities;
 
@@ -23,7 +24,9 @@ public class MapperProfile: Profile
         CreateMap<SpaceEntity, UpdateSpaceModel>().ReverseMap();
         
         CreateMap<UserEntity, CreateUserModel>().ReverseMap();
+        CreateMap<UserEntity, CreateUsernameModel>().ReverseMap();
         CreateMap<UserEntity, UpdateUserModel>().ReverseMap();
-        CreateMap<UserEntity, UpdatePasswordUserCommand>().ReverseMap();
+
+        CreateMap<SecurityEntity, CreateSecurityModel>().ReverseMap();
     }
 }

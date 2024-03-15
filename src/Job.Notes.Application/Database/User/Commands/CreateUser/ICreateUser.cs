@@ -2,7 +2,7 @@
 
 namespace Job.Notes.Application.Database.User.Commands.CreateUser;
 
-public interface ICreateUserCommand
+public interface ICreateUser
 {
     Task<UserEntity> Execute(CreateUserModel model);
 }
